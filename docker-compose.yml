@@ -1,0 +1,22 @@
+services:
+  db:
+    image: "postgres:16"
+    environment:
+      - POSTGRES_PASSWORD=megha2009
+      - POSTGRES_USER=megha
+      - POSTGRES_DB=shelter
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5431:5432"
+
+  etl:
+    build: .
+    command: https://raw.githubusercontent.com/meghav-2009/Homeworks/Lab-02/Austin_Animal_Center_Outcomes_20231017.csv
+    depends_on:
+      - db
+
+
+volumes:
+  db_data:
