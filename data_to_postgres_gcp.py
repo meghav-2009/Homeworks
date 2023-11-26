@@ -48,7 +48,7 @@ class data_load_to_postgres:
             'dbname': 'postgres',
             'user': 'postgres',
             'password': 'postgres',
-            'host': '340121.243.233',
+            'host': '34.121.243.233',
             'port': '5432',
         }
 
